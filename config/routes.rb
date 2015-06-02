@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :feelings
   get 'moods/mood:string'
 
 root 'home#index' 
