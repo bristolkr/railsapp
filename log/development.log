@@ -162,3 +162,104 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+
+
+Started GET "/" for ::1 at 2015-06-02 17:30:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 3148ms (Views: 3125.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/feelings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-02 17:30:33 -0400
+
+
+Started GET "/assets/scaffolds.self-c772cfa61757fec73021a0bc1c18b4ce99ba9e0c3505512c8527aead0c45e309.css?body=1" for ::1 at 2015-06-02 17:30:33 -0400
+
+
+Started GET "/assets/feelings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-02 17:30:33 -0400
+
+
+Started GET "/feelings" for ::1 at 2015-06-02 17:30:36 -0400
+Processing by FeelingsController#index as HTML
+  [1m[35mFeeling Load (11.2ms)[0m  SELECT "feelings".* FROM "feelings"
+  Rendered feelings/index.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 110ms (Views: 79.6ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/feelings/new" for ::1 at 2015-06-02 17:30:38 -0400
+Processing by FeelingsController#new as HTML
+  Rendered feelings/_form.html.erb (86.3ms)
+  Rendered feelings/new.html.erb within layouts/application (114.9ms)
+Completed 200 OK in 192ms (Views: 182.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/feelings" for ::1 at 2015-06-02 17:30:45 -0400
+Processing by FeelingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4uJO/VJAYRW6/RcZ5EMAfA/qH3XUyx81yx83QtnwwPFusPS9mH3otxkak3NJikTZqNNSpVOdzpG5WVtZmDE5pw==", "feeling"=>{"mood"=>"Productive"}, "commit"=>"Create Feeling"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "feelings" ("mood", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["mood", "Productive"], ["created_at", "2015-06-02 21:30:45.960799"], ["updated_at", "2015-06-02 21:30:45.960799"]]
+  [1m[36m (16.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/feelings/1
+Completed 302 Found in 27ms (ActiveRecord: 18.1ms)
+
+
+Started GET "/feelings/1" for ::1 at 2015-06-02 17:30:46 -0400
+Processing by FeelingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFeeling Load (0.4ms)[0m  SELECT  "feelings".* FROM "feelings" WHERE "feelings"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered feelings/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 99ms (Views: 64.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/feelings" for ::1 at 2015-06-02 17:30:49 -0400
+Processing by FeelingsController#index as HTML
+  [1m[36mFeeling Load (0.4ms)[0m  [1mSELECT "feelings".* FROM "feelings"[0m
+  Rendered feelings/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/feelings/new" for ::1 at 2015-06-02 17:30:51 -0400
+Processing by FeelingsController#new as HTML
+  Rendered feelings/_form.html.erb (1.8ms)
+  Rendered feelings/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 67ms (Views: 66.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feelings" for ::1 at 2015-06-02 17:30:58 -0400
+Processing by FeelingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SRuJBwqqOCPbnXm6Fwa06+LVdvsOmGHlMdWTmfLeMPTFSTNHwJexgXh6/dC6z/BORew7K4nOsEFDk/+Csx/Jog==", "feeling"=>{"mood"=>"Creative"}, "commit"=>"Create Feeling"}
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "feelings" ("mood", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["mood", "Creative"], ["created_at", "2015-06-02 21:30:58.567487"], ["updated_at", "2015-06-02 21:30:58.567487"]]
+  [1m[35m (16.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/feelings/2
+Completed 302 Found in 22ms (ActiveRecord: 17.3ms)
+
+
+Started GET "/feelings/2" for ::1 at 2015-06-02 17:30:58 -0400
+Processing by FeelingsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFeeling Load (0.5ms)[0m  [1mSELECT  "feelings".* FROM "feelings" WHERE "feelings"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered feelings/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 70ms (Views: 67.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/feelings" for ::1 at 2015-06-02 17:31:00 -0400
+Processing by FeelingsController#index as HTML
+  [1m[35mFeeling Load (0.4ms)[0m  SELECT "feelings".* FROM "feelings"
+  Rendered feelings/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 87ms (Views: 85.8ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'feelings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
